@@ -1,0 +1,5 @@
+# MCP Registry signing keys — NEVER commit these
+key.pem
+*.pem
+mcp-registry-auth
+.mcpregistry_*
