@@ -46,6 +46,14 @@ Once OpenBudget is connected, ask in plain language — your assistant selects t
 - "Hide the transfers between my own accounts from spending searches."
 - "What categorization rules do I have, and what has each one applied to?"
 
+## Cash & off-bank money
+
+- "I paid the babysitter $60 in cash tonight; log it as childcare."
+- "Set up a Cash wallet with $300 in it, then record the $40 I spent on the farmers market."
+- "Track my $200 Amazon gift card, and record the $45 order I paid with it."
+- "I bought coffee with a Starbucks gift card — log $6 against that balance."
+- "Delete that cash transaction I added by mistake."
+
 ## Budgeting
 
 - "Build me a monthly budget based on my actual spending over the last 6 months."

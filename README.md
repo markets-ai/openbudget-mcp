@@ -2,7 +2,7 @@
 
 **Your real bank accounts, balances, and spending — now available to your AI assistant.**
 
-OpenBudget is a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that gives Claude, ChatGPT, Cursor, Codex, and any other MCP-capable client access to your actual financial data — transactions, balances, net worth, credit cards, loans, and mortgages — synced from 10,000+ US institutions through Plaid.
+OpenBudget is a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that gives Claude, ChatGPT, Cursor, Codex, and any other MCP-capable client access to your actual financial data — transactions, balances, net worth, credit cards, loans, and mortgages — synced from 10,000+ US institutions through Plaid. You can also add off-bank money it can't see, like physical cash or a gift-card balance, and ask about everything together.
 
 You don't run anything. The server is hosted on OpenBudget's infrastructure. You add one URL to your client, sign in once, and start asking.
 
@@ -12,10 +12,10 @@ https://api.openbudget.sh/mcp
 
 - **Transport:** Streamable HTTP (remote MCP server)
 - **Auth:** OAuth 2.0 — sign in with your OpenBudget account
-- **Plan:** requires an [OpenBudget subscription](https://openbudget.sh/pricing) — $5/month billed annually, or $9.95 month-to-month. One plan, everything included.
+- **Plan:** requires an [OpenBudget subscription](https://openbudget.sh/pricing) — $5/month billed annually, or $9.95 month-to-month, starting with a 7-day free trial. One plan, everything included.
 - **Data:** your own bank accounts, connected read-only via Plaid (US institutions)
 
-> Bank connections are read-only. OpenBudget never stores your bank credentials, and your AI assistant **cannot move money** — the only thing it can write is your own metadata: transaction categories, notes, and categorization rules.
+> Bank connections are read-only. OpenBudget never stores your bank credentials, and your AI assistant **cannot move money** at your bank. What it can write stays inside your own OpenBudget account: transaction categories, notes, categorization rules, and the manual off-bank accounts and transactions you ask it to add (cash, gift-card balances).
 
 ---
 
@@ -93,7 +93,7 @@ Full guide: [openbudget.sh/connect-ai/other](https://openbudget.sh/connect-ai/ot
 
 ## What you can ask
 
-The server ships with 10 tools. You rarely call them by name — just ask in natural language and your client picks the right one.
+The server ships with 13 tools. You rarely call them by name — just ask in natural language and your client picks the right one.
 
 | Tool | What it does |
 |------|--------------|
@@ -103,7 +103,10 @@ The server ships with 10 tools. You rarely call them by name — just ask in nat
 | `get_liability_history` | How those liabilities changed over time — APR moves, balance trends, YTD interest. |
 | `list_available_categories` | The full transaction category taxonomy. |
 | `list_categorization_rules` | Your auto-categorization rules, in evaluation order. |
-| `update_transaction` | *(write)* Recategorize a transaction, add a note, or hide it from searches. |
+| `update_transaction` | *(write)* Recategorize a transaction, add a note, split it, or hide it from searches. |
+| `create_transaction` | *(write)* Log an off-bank purchase — physical cash, or something paid entirely with a gift-card balance. |
+| `delete_transaction` | *(write)* Remove a manually-created transaction (bank transactions are hidden with `update_transaction` instead). |
+| `upsert_manual_account` | *(write)* Create or update a manual off-bank account — a "Cash" wallet or a gift-card balance that sits alongside your bank accounts. |
 | `save_categorization_rule` | *(write)* "Payments to our nanny are childcare" — create a rule once, new transactions follow it. |
 | `delete_categorization_rule` | *(write)* Remove a rule. |
 | `update_liability` | *(write)* Note or manual balance override on a credit card or loan. |
@@ -116,6 +119,8 @@ The server ships with 10 tools. You rarely call them by name — just ask in nat
 - *"What's my net worth across all accounts right now?"*
 - *"What's the APR on each of my credit cards, and when are the next payments due?"*
 - *"Venmo payments to Elena are childcare, not transfers — make that a rule."*
+- *"I paid the babysitter $60 in cash tonight; log it as childcare."*
+- *"Track my $200 Amazon gift card and record the $45 I just spent from it."*
 
 More in [`examples/prompts.md`](examples/prompts.md).
 
@@ -123,7 +128,7 @@ More in [`examples/prompts.md`](examples/prompts.md).
 
 ## Read-only banking by design
 
-Bank connections go through [Plaid](https://plaid.com) with read-only access — the same infrastructure behind Venmo and Robinhood. OpenBudget never sees or stores your bank credentials. Your AI assistant **cannot move money, initiate transfers, or modify anything at your bank.** The only write surface is your own OpenBudget metadata: transaction categories, notes, ignored flags, categorization rules, and liability notes. Every tool declares MCP annotations (`readOnlyHint`, `destructiveHint`) so clients can show you exactly what each call can do.
+Bank connections go through [Plaid](https://plaid.com) with read-only access — the same infrastructure behind Venmo and Robinhood. OpenBudget never sees or stores your bank credentials. Your AI assistant **cannot move money, initiate transfers, or modify anything at your bank.** Every write it can make stays inside your own OpenBudget account: transaction categories, notes, ignored flags, splits, categorization rules, liability notes, and the manual off-bank accounts and transactions you ask it to add (cash, gift-card balances). Every tool declares MCP annotations (`readOnlyHint`, `destructiveHint`) so clients can show you exactly what each call can do.
 
 ## Privacy & terms
 
