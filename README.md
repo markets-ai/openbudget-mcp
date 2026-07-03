@@ -93,7 +93,7 @@ Full guide: [openbudget.sh/connect-ai/other](https://openbudget.sh/connect-ai/ot
 
 ## What you can ask
 
-The server ships with 13 tools. You rarely call them by name — just ask in natural language and your client picks the right one.
+The server ships with 13 tools, each shown with a live demo at **[openbudget.sh/tools](https://openbudget.sh/tools)**. You rarely call them by name — just ask in natural language and your client picks the right one.
 
 | Tool | What it does |
 |------|--------------|
@@ -143,6 +143,7 @@ The OpenBudget MCP service they connect to is a hosted service governed by its [
 ## Links
 
 - Website — [openbudget.sh](https://openbudget.sh)
+- The tools, demoed — [openbudget.sh/tools](https://openbudget.sh/tools)
 - Connect guides — [openbudget.sh/connect-ai](https://openbudget.sh/connect-ai)
 - Pricing — [openbudget.sh/pricing](https://openbudget.sh/pricing)
 - Model Context Protocol — [modelcontextprotocol.io](https://modelcontextprotocol.io)
