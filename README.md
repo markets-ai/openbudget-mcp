@@ -98,7 +98,7 @@ The server ships with 13 tools, each shown with a live demo at **[openbudget.sh/
 | Tool | What it does |
 |------|--------------|
 | `list_accounts` | Every linked account with balances, institution, and a normalized net-worth view. |
-| `search_transactions` | Search and filter transactions — by text, category, account, date range, or amount. |
+| `search_transactions` | Search and filter transactions by text, category, account, date range, or amount, with settlement links and merchant location details when Plaid supplies them. |
 | `get_liabilities` | Credit cards, student loans, and mortgages: APRs, due dates, minimum payments, payoff data. |
 | `get_liability_history` | How those liabilities changed over time — APR moves, balance trends, YTD interest. |
 | `list_available_categories` | The full transaction category taxonomy. |
@@ -110,6 +110,8 @@ The server ships with 13 tools, each shown with a live demo at **[openbudget.sh/
 | `save_categorization_rule` | *(write)* "Payments to our nanny are childcare" — create a rule once, new transactions follow it. |
 | `delete_categorization_rule` | *(write)* Remove a rule. |
 | `update_liability` | *(write)* Note or manual balance override on a credit card or loan. |
+
+Transaction results can include `pendingTransactionId`, which links a posted transaction to its earlier pending record, and a structured `location` with address, city, region, postal code, store number, latitude, and longitude. These fields make receipt reconciliation reliable when a tip or pre-authorization changes the settled amount.
 
 ### Example prompts
 
