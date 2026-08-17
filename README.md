@@ -93,7 +93,7 @@ Full guide: [openbudget.sh/connect-ai/other](https://openbudget.sh/connect-ai/ot
 
 ## What you can ask
 
-The server ships with 22 tools, each shown with a live demo at **[openbudget.sh/tools](https://openbudget.sh/tools)**. You rarely call them by name. Ask in natural language and your client picks the right one.
+The server ships with 25 tools, each shown with a live demo at **[openbudget.sh/tools](https://openbudget.sh/tools)**. You rarely call them by name. Ask in natural language and your client picks the right one.
 
 ### Base tools
 
@@ -105,11 +105,14 @@ The server ships with 22 tools, each shown with a live demo at **[openbudget.sh/
 | `get_liability_history` | How those liabilities changed over time, including APR moves, balance trends, and YTD interest. |
 | `list_available_categories` | The full transaction category taxonomy. |
 | `list_categorization_rules` | Your auto-categorization rules, in evaluation order. |
-| `update_transaction` | *(write)* Recategorize a transaction, add a note, split it, or hide it from searches. |
+| `search_budgets` | Return all matching budget summaries, including current progress for fixed or recurring periods. |
+| `get_budget` | Get one budget by ID with its current period, history, rollover, comparisons, buckets, and optional audit events. |
+| `update_transaction` | *(write)* Recategorize a transaction, add a note, split it, hide it from searches, or include/exclude it from budgets. |
 | `create_transaction` | *(write)* Log an off-bank purchase made with physical cash, a gift card, or store credit. |
 | `delete_transaction` | *(write)* Remove a manually-created transaction (bank transactions are hidden with `update_transaction` instead). |
 | `upsert_manual_account` | *(write)* Create or update a manual off-bank account such as a cash wallet or gift-card balance. |
-| `save_categorization_rule` | *(write)* Create a rule once, such as "payments to our nanny are childcare," and new transactions follow it. |
+| `upsert_budget` | *(write)* Create, edit, archive, or restore fixed and recurring budgets with category buckets and rollover policies. |
+| `save_categorization_rule` | *(write)* Create a rule once, such as "payments to our nanny are childcare," and optionally attribute future matches to a budget. |
 | `delete_categorization_rule` | *(write)* Remove a rule. |
 | `update_liability` | *(write)* Note or manual balance override on a credit card or loan. |
 
@@ -139,6 +142,9 @@ Transaction results can include `pendingTransactionId`, which links a posted tra
 - *"What's my net worth across all accounts right now?"*
 - *"What's the APR on each of my credit cards, and when are the next payments due?"*
 - *"Categorize Venmo payments to Elena as childcare and make that a rule."*
+- *"Create a $1,500 monthly household budget that rolls unused money into the next month."*
+- *"Create a Miami trip budget and include the flights and hotel I already booked."*
+- *"Show every active budget, then tell me where I am over budget this month."*
 - *"I paid the babysitter $60 in cash tonight; log it as childcare."*
 - *"Track my $200 Amazon gift card and record the $45 I just spent from it."*
 - *"What's my net worth across bank accounts, cards, loans, brokerage and retirement accounts, and property?"*
