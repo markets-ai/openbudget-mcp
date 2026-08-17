@@ -105,13 +105,13 @@ The server ships with 25 tools, each shown with a live demo at **[openbudget.sh/
 | `get_liability_history` | How those liabilities changed over time, including APR moves, balance trends, and YTD interest. |
 | `list_available_categories` | The full transaction category taxonomy. |
 | `list_categorization_rules` | Your auto-categorization rules, in evaluation order. |
-| `search_budgets` | Return all matching budget summaries, including current progress for fixed or recurring periods. |
+| `search_budgets` | Return matching budget summaries with bounded pagination, including current progress for fixed or recurring periods. |
 | `get_budget` | Get one budget by ID with its current period, history, rollover, comparisons, buckets, and optional audit events. |
-| `update_transaction` | *(write)* Recategorize a transaction, add a note, split it, hide it from searches, or include/exclude it from budgets. |
+| `update_transaction` | *(write)* Recategorize a transaction, add a note, split it, hide it from searches, or include/exclude a transaction or split from budgets. |
 | `create_transaction` | *(write)* Log an off-bank purchase made with physical cash, a gift card, or store credit. |
 | `delete_transaction` | *(write)* Remove a manually-created transaction (bank transactions are hidden with `update_transaction` instead). |
 | `upsert_manual_account` | *(write)* Create or update a manual off-bank account such as a cash wallet or gift-card balance. |
-| `upsert_budget` | *(write)* Create, edit, archive, or restore fixed and recurring budgets with category buckets and rollover policies. |
+| `upsert_budget` | *(write)* Create, edit, or archive fixed and recurring budgets with category buckets and rollover policies. Archived budgets remain available in history; create a new budget when planning resumes. |
 | `save_categorization_rule` | *(write)* Create a rule once, such as "payments to our nanny are childcare," and optionally attribute future matches to a budget. |
 | `delete_categorization_rule` | *(write)* Remove a rule. |
 | `update_liability` | *(write)* Note or manual balance override on a credit card or loan. |
