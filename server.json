@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "sh.openbudget/mcp",
   "title": "OpenBudget MCP Server",
-  "description": "Ask your AI about bank accounts, spending, debts, holdings, and investment activity.",
-  "version": "1.2.1",
+  "description": "Ask your AI about bank accounts, spending, budgets, debts, holdings, and investment activity.",
+  "version": "1.3.0",
   "websiteUrl": "https://openbudget.sh",
   "repository": {
     "url": "https://github.com/markets-ai/openbudget-mcp",

@@ -67,6 +67,11 @@ Once OpenBudget is connected, ask in your own words and your assistant selects t
 
 ## Budgeting
 
-- "Build me a monthly budget based on my actual spending over the last 6 months."
-- "Where am I over budget this month?"
-- "If I cut dining out by half, how much would I save per year?"
+- "Show every active budget and its current progress."
+- "Create a $1,500 monthly household budget that rolls unused money into the next month."
+- "Add $500 dining and $300 entertainment buckets to my monthly budget."
+- "Create a Miami trip budget and include the flights and hotel I already booked."
+- "Tag only the airfare split of that travel charge to the Miami budget."
+- "Automatically attribute future charges from this hotel to the Miami budget."
+- "Compare my last six completed monthly budget periods."
+- "Archive the Miami budget now that the trip is complete."
