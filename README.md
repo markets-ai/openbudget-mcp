@@ -93,7 +93,7 @@ Full guide: [openbudget.sh/connect-ai/other](https://openbudget.sh/connect-ai/ot
 
 ## What you can ask
 
-The server ships with 25 tools, each shown with a live demo at **[openbudget.sh/tools](https://openbudget.sh/tools)**. You rarely call them by name. Ask in natural language and your client picks the right one.
+The server exposes 26 tools, documented at **[openbudget.sh/tools](https://openbudget.sh/tools)**. Ask in your own words and your client picks the right one. New connections receive read access by default; approve editing access (`openbudget:write`) to use mutation tools.
 
 ### Base tools
 
@@ -111,6 +111,7 @@ The server ships with 25 tools, each shown with a live demo at **[openbudget.sh/
 | `create_transaction` | *(write)* Log an off-bank purchase made with physical cash, a gift card, or store credit. |
 | `delete_transaction` | *(write)* Remove a manually-created transaction (bank transactions are hidden with `update_transaction` instead). |
 | `upsert_manual_account` | *(write)* Create or update a manual off-bank account such as a cash wallet or gift-card balance. |
+| `delete_manual_account` | *(write)* Delete an owned manual account with a zero or untracked balance and no transactions, holdings, or investment activity. Connected bank accounts are protected. |
 | `upsert_budget` | *(write)* Create, edit, or archive fixed and recurring budgets with category buckets and rollover policies. Archived budgets remain available in history; create a new budget when planning resumes. |
 | `save_categorization_rule` | *(write)* Create a rule once, such as "payments to our nanny are childcare," and optionally attribute future matches to a budget. |
 | `delete_categorization_rule` | *(write)* Remove a rule. |
@@ -147,6 +148,7 @@ Transaction results can include `pendingTransactionId`, which links a posted tra
 - *"Show every active budget, then tell me where I am over budget this month."*
 - *"I paid the babysitter $60 in cash tonight; log it as childcare."*
 - *"Track my $200 Amazon gift card and record the $45 I just spent from it."*
+- *"Delete my empty manual account named Old wallet."*
 - *"What's my net worth across bank accounts, cards, loans, brokerage and retirement accounts, and property?"*
 - *"Over the last three months, how much did I spend, save, and invest, and what changed month to month?"*
 - *"Add my rental property and record this month's distribution."*

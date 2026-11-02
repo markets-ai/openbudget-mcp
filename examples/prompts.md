@@ -64,6 +64,9 @@ Once OpenBudget is connected, ask in your own words and your assistant selects t
 - "Track my $200 Amazon gift card, and record the $45 order I paid with it."
 - "I bought coffee with a Starbucks gift card, so log $6 against that balance."
 - "Delete that cash transaction I added by mistake."
+- "Show all my manual accounts, then delete the empty account named Old wallet."
+
+Manual accounts can be deleted only when their balance is zero or untracked and they contain no transactions, holdings, or investment activity. Editing access is required.
 
 ## Budgeting
 
